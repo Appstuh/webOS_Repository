@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z0-9-_.]+)/Packages$		pkg.php?user=$1&token=$2
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z0-9-_.]+)/([a-zA-Z.]+)_([0-9.]+)_([a-z6-7]+).ipk$		out.php?user=$1&token=$2&appid=$3&ver=$4&arch=$5
