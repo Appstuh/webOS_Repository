@@ -5,7 +5,7 @@ require_once('common.php');
 $conn = mysql_connect($db['host'], $db['user'], $db['pass']);
 mysql_select_db($db['db']);
 // Log access
-mysql_query("INSERT INTO accessApp (ipaddr, user, time, appid, ver) VALUES ('" . $_SERVER['REMOTE_ADDR'] . "', '" . mysql_real_escape_string($_GET['user']) . "', NOW(), '" . mysql_real_escape_string($_GET['appid']) . "', '" . mysql_real_escape_string($_GET['ver']) . "')");
+mysql_query("INSERT INTO access (ipaddr, user, time) VALUES ('" . $_SERVER['REMOTE_ADDR'] . "', '" . mysql_real_escape_string($_GET['user']) . "', NOW())");
 
 // Authenticate
 $query = mysql_query("SELECT * FROM auth WHERE valid=1 AND user='" . mysql_real_escape_string($_GET['user']) . "' AND token=md5('" . $_GET['token'] . "')");
